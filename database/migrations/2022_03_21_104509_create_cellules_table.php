@@ -18,8 +18,8 @@ class CreateCellulesTable extends Migration
             $table->string('codeCellule', 20);
             $table->unsignedBigInteger('idRanger');
             $table->foreign('idRanger')->references('id')->on('rangers');
-            $table->integer('numLigne');//11
-            $table->integer('numColonne');//11
+            $table->integer('numLigne');
+            $table->integer('numColonne');
             $table->timestamps();
         });
     }

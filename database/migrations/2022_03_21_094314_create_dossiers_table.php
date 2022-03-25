@@ -24,7 +24,7 @@ class CreateDossiersTable extends Migration
             $table->foreign('IDBENEFICIAIRE')->references('id')->on('beneficiaire');
             $table->dateTime('DATEDOSSIER');
             $table->string('CodeCellule', 20);
-            $table->integer('AnneeDossier'); //11
+            $table->integer('AnneeDossier');
             $table->string('ObjetDossier', 250);
             $table->boolean('DISPODOSSIER');
             $table->boolean('VALID');
