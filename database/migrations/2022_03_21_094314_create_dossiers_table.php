@@ -21,7 +21,7 @@ class CreateDossiersTable extends Migration
             $table->unsignedBigInteger('IDSERVICE');
             $table->foreign('IDSERVICE')->references('id')->on('services');
             $table->unsignedBigInteger('IDBENEFICIAIRE');
-            $table->foreign('IDBENEFICIAIRE')->references('id')->on('beneficiaire');
+            $table->foreign('IDBENEFICIAIRE')->references('id')->on('beneficiaires');
             $table->dateTime('DATEDOSSIER');
             $table->string('CodeCellule', 20);
             $table->integer('AnneeDossier');

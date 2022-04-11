@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBeneficiaireTable extends Migration
+class CreateBeneficiairesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBeneficiaireTable extends Migration
      */
     public function up()
     {
-        Schema::create('beneficiaire', function (Blueprint $table) {
+        Schema::create('beneficiaires', function (Blueprint $table) {
             $table->id();
             $table->string('CODEBENEFICIAIRE', 30)->unique();
             $table->string('NOMBENEFICIAIRE', 128);
@@ -35,6 +35,6 @@ class CreateBeneficiaireTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('beneficiaire');
+        Schema::dropIfExists('beneficiaires');
     }
 }
