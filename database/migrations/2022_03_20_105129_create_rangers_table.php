@@ -15,7 +15,7 @@ class CreateRangersTable extends Migration
     {
         Schema::create('rangers', function (Blueprint $table) {
             $table->id();
-            $table->string('codeRanger', 6);
+            $table->string('codeRanger', 10);
             $table->string('intitulRanger', 100);
             $table->unsignedBigInteger('idArchive');
             $table->foreign('idArchive')->references('id')->on('archives');

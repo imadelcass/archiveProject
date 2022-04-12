@@ -15,7 +15,7 @@ class CreateArchivesTable extends Migration
     {
         Schema::create('archives', function (Blueprint $table) {
             $table->id();
-            $table->string('codeArchive', 2);
+            $table->string('codeArchive', 10);
             $table->string('intitulArchive', 100);
             $table->timestamps();
         });
