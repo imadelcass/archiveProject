@@ -24,8 +24,11 @@ Route::put('/beneficiaire/update', [BeneficiaireController::class, 'update']);
 Route::delete('/beneficiaire/destroy/{id}', [BeneficiaireController::class, 'destroy']);
 
 Route::get('/rangers', [RangerController::class, 'index']);
+Route::post('/ranger/add', [RangerController::class, 'create']);
+Route::delete('/ranger/destroy/{id}', [RangerController::class, 'destroy']);
 
 Route::get('/cellules', [CelluleController::class, 'index']);
+Route::post('/cellule/add', [CelluleController::class, 'create']);
 
 
 
