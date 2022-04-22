@@ -10,6 +10,7 @@ class ArchiveController extends Controller
         $query = Archive::query();
         return $query->get();
     }
+    
     public function create(Request $request)
     {
         if(Archive::where('id' , $request->id)->exists()){

@@ -3,28 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\TypeDossier;
+use App\Models\TypePiece;
 
-
-class TypeDossierController extends Controller
+class TypePieceController extends Controller
 {
     public function index()
     {
-        $query = TypeDossier::query();
+        $query = TypePiece::query();
         return $query->get();
     }
     public function create(Request $request)
     {
-        $typeDossier = new TypeDossier;
-        $typeDossier->codeTypeDoss = $request->code;
-        $typeDossier->libTypeDoss = $request->libel;
-        if ($typeDossier->save()) {
+        $typePiece = new TypePiece;
+        $typePiece->codeTypePiece = $request->code;
+        $typePiece->IntituleTypePiece = $request->intitule;
+        if ($typePiece->save()) {
             return response()->json([
                 "success" => true,
-                "typeDossier" => $typeDossier,
+                "typePiece" => $typePiece,
                 'msg' => "Le type est bien ajouter.",
                 'severity' => "success",
             ]);
         }
+
     }
 }

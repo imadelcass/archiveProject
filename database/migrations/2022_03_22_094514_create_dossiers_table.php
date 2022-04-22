@@ -22,14 +22,15 @@ class CreateDossiersTable extends Migration
             $table->foreign('IDSERVICE')->references('id')->on('services');
             $table->unsignedBigInteger('IDBENEFICIAIRE');
             $table->foreign('IDBENEFICIAIRE')->references('id')->on('beneficiaires');
-            $table->dateTime('DATEDOSSIER');
-            $table->string('CodeCellule', 20);
+            $table->date('DATEDOSSIER');
+            $table->unsignedBigInteger('idCellule');
+            $table->foreign('idCellule')->references('id')->on('cellules');
             $table->integer('AnneeDossier');
             $table->string('ObjetDossier', 250);
             $table->boolean('DISPODOSSIER');
             $table->boolean('VALID');
-            $table->unsignedBigInteger('VALIDPAR');
-            $table->foreign('VALIDPAR')->references('id')->on('users');
+            $table->unsignedBigInteger('VALIDPAR')->nullable();
+            $table->foreign('VALIDPAR')->nullable()->references('id')->on('users');
             $table->timestamps();
         });
     }
