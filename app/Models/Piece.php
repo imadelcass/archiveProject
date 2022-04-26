@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Piece extends Model
 {
     use HasFactory;
+
+    public function type()
+    {
+        return $this->hasOne(TypePiece::class,'id','idTypePiece');
+    }
 }

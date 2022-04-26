@@ -10,7 +10,7 @@ class PieceController extends Controller
     public function index(Request $request)
     {
         $query = Piece::query();
-        return $query->get();
+        return $query->with('type')->get();
     }
     
     public function create(Request $request)

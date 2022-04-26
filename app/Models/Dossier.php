@@ -8,5 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Dossier extends Model
 {
     use HasFactory;
+
+    public function beneficiaire()
+    {
+        return $this->hasOne(Beneficiaire::class, 'id', 'IDBENEFICIAIRE');
+    }
+    
+    public function pieces()
+    {
+        return $this->hasMany(Piece::class, 'idDossier', 'id');
+    }
     
 }
