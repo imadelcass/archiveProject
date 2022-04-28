@@ -11,7 +11,10 @@ class DossierController extends Controller
     public function index(Request $request)
     {
         $query = Dossier::query();
-        return $query->with('beneficiaire')
+        return $query
+        ->with('beneficiaire')
+        ->with('type')
+        ->with('service')
         ->with('pieces.type')->get();
     }
     

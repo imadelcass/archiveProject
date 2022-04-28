@@ -19,4 +19,12 @@ class Dossier extends Model
         return $this->hasMany(Piece::class, 'idDossier', 'id');
     }
     
+    public function type()
+    {
+        return $this->hasOne(TypeDossier::class, 'id', 'IDTYPEDOSSIER');
+    }
+    public function service()
+    {
+        return $this->hasOne(Service::class, 'id', 'IDSERVICE');
+    }
 }
