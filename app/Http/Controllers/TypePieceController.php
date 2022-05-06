@@ -2,15 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\TypePiece;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TypePieceController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $query = TypePiece::query();
-        return $query->get();
+        if ($request->PiecesManquants) {
+            #les types des pieces manquants
+            $query = "select * from type_pieces where id in (
+                select idTypePiece from composit_dossiers where idTypePiece not in
+            (select distinct idTypePiece from pieces where idDossier = {$request->idDossier})
+            and idTypeDossier = (select idTypeDossier from dossiers where id = {$request->idDossier}))";
+
+            return DB::select($query);
+
+        } else {
+            $query = TypePiece::query();
+            return $query->get();
+        }
     }
     public function create(Request $request)
     {
