@@ -12,9 +12,9 @@ class DossierController extends Controller
 {
     public function index(Request $request)
     {
+        $query = Dossier::query();
         if ($request->nonCompletDoss) {
             #les dossiers non complets
-            $query = Dossier::query();
             return $query
                 ->select('dossiers.*', 'p.piecesExist', 'cd.piecesTotal')
                 ->join(DB::raw('(SELECT idDossier, COUNT(DISTINCT idTypePiece) piecesExist  FROM pieces GROUP BY idDossier) p'), 'p.idDossier', '=', 'dossiers.id')
@@ -28,8 +28,6 @@ class DossierController extends Controller
                 ->get();
 
         } else {
-
-            $query = Dossier::query();
             return $query
                 ->with('beneficiaire')
                 ->with('type')

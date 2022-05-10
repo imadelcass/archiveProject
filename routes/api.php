@@ -15,6 +15,8 @@ use App\Http\Controllers\TypePieceController;
 use App\Http\Controllers\PagePieceController;
 
 Route::get('/users', [UserController::class, 'index']);
+Route::post('/user/add', [UserController::class, 'create']);
+Route::delete('/user/destroy/{id}', [UserController::class, 'destroy']);
 //archive
 Route::get('/archive', [ArchiveController::class, 'index']);
 Route::post('/archive/add', [ArchiveController::class, 'create']); 
