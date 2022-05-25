@@ -20,12 +20,20 @@ class UserController extends Controller
             $user = User::find($request->id);
             $user->name = $request->name;
             $user->email = $request->email;
-            $user->password = Hash::make($request->password);
+            $user->type = $request->type;
+            $user->idService = $request->idService;
+            if ($request->password != "") {
+                $user->password = Hash::make($request->password);
+            }
         } else {
             $user = new User;
             $user->name = $request->name;
             $user->email = $request->email;
-            $user->password = Hash::make($request->password);
+            $user->type = $request->type;
+            $user->idService = $request->idService;
+            if ($request->password != "") {
+                $user->password = Hash::make($request->password);
+            }
         }
         if ($user->save()) {
             return response()->json([

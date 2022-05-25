@@ -2,14 +2,16 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Archive;
-use App\Models\Service;
 use App\Models\Beneficiaire;
-use App\Models\Ranger;
 use App\Models\Cellule;
-use App\Models\TypeDossier;
 use App\Models\Dossier;
+use App\Models\Ranger;
+use App\Models\Service;
+use App\Models\TypeDossier;
+use App\Models\User;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,19 +24,19 @@ class DatabaseSeeder extends Seeder
     {
         Archive::create([
             'codeArchive' => 'l1',
-            'intitulArchive' => 'local 1'
+            'intitulArchive' => 'local 1',
         ]);
         Archive::create([
             'codeArchive' => 'l2',
-            'intitulArchive' => 'local 2'
+            'intitulArchive' => 'local 2',
         ]);
         Service::create([
             'codeService' => 's1',
-            'libService' => 'service 1'
+            'libService' => 'service 1',
         ]);
         Service::create([
             'codeService' => 's2',
-            'libService' => 'service 2'
+            'libService' => 'service 2',
         ]);
         Beneficiaire::create([
             'CODEBENEFICIAIRE' => 'b1',
@@ -63,23 +65,44 @@ class DatabaseSeeder extends Seeder
 
         TypeDossier::create([
             'codeTypeDoss' => 'typeDoss1',
-            'libTypeDoss' => 'type doss 1'
+            'libTypeDoss' => 'type doss 1',
         ]);
         Dossier::create([
             'NUMDOSSIER' => 'doss1',
-            'IDTYPEDOSSIER' => 1,  
-            'IDSERVICE' => 1,  
-            'IDBENEFICIAIRE' => 1,  
-            'DATEDOSSIER' => '2022-02-15',  
-            'idCellule' => 1,  
-            'AnneeDossier' => 2020,  
-            'ObjetDossier' => 'object dossier',  
-            'DISPODOSSIER' => 0,  
-            'VALID' => 0,  
+            'IDTYPEDOSSIER' => 1,
+            'IDSERVICE' => 1,
+            'IDBENEFICIAIRE' => 1,
+            'DATEDOSSIER' => '2022-02-15',
+            'idCellule' => 1,
+            'AnneeDossier' => 2020,
+            'ObjetDossier' => 'object dossier',
+            'DISPODOSSIER' => 0,
+            'VALID' => 0,
         ]);
-        
+        User::create([
+            "name" => "user",
+            "idService" => 1,
+            "type" => "user",
+            "email" => "user@mail.com",
+            "password" => Hash::make("1234"),
+        ]);
+        User::create([
+            "name" => "admin",
+            "idService" => 1,
+            "type" => "admin",
+            "email" => "admin@mail.com",
+            "password" => Hash::make("1234"),
+        ]);
+        User::create([
+            "name" => "master",
+            "idService" => 1,
+            "type" => "master",
+            "email" => "master@mail.com",
+            "password" => Hash::make("1234"),
+        ]);
+
     }
 }
 
-// INSERT INTO `users`(`name`, `email`, `password`) 
+// INSERT INTO `users`(`name`, `email`, `password`)
 //VALUES ('imad','imad@gmail.com','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi')
