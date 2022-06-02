@@ -16,20 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', [UserController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/archive', [ArchiveController::class, 'index']);
-    Route::get('/dossiers', [DossierController::class, 'index']);
     Route::get('/beneficieres', [BeneficiaireController::class, 'index']);
     Route::get('/rangers', [RangerController::class, 'index']);
+    Route::get('/archive', [ArchiveController::class, 'index']);
+    Route::get('/dossiers', [DossierController::class, 'index']);
     Route::get('/cellules', [CelluleController::class, 'index']);
     Route::get('/typedossiers', [TypeDossierController::class, 'index']);
-    Route::get('/dossiers', [DossierController::class, 'index']);
+    Route::get('/service', [ServiceController::class, 'index']);
     Route::get('/pieces', [PieceController::class, 'index']);
     Route::get('/typepieces', [TypePieceController::class, 'index']);
-    Route::get('/users', [UserController::class, 'index']);
-    Route::get('/service', [ServiceController::class, 'index']);
 });
 
 Route::middleware(['auth:sanctum', 'admin'])->group(function () {
+    Route::get('/users', [UserController::class, 'index']);
     Route::post('/user/add', [UserController::class, 'create']);
     Route::post('/archive/add', [ArchiveController::class, 'create']);
     Route::post('/service/add', [ServiceController::class, 'create']);
