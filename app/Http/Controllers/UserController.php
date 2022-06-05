@@ -12,7 +12,10 @@ class UserController extends Controller
     public function index()
     {
         $query = User::query();
-        return $query->get();
+        return response()->json([
+            "success" => true,
+            "users" => $query->get(),
+        ]);
     }
     public function create(Request $request)
     {

@@ -12,7 +12,7 @@ class PieceController extends Controller
 
         $query = Piece::query();
         return $query->with('type')->get();
-        
+
     }
 
     public function create(Request $request)
@@ -21,7 +21,10 @@ class PieceController extends Controller
             $file = $request->file('file');
             $extention = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extention;
-            $file->move(public_path('files'), $filename);
+
+            // $file->move(public_path('files'), $filename);
+            $file->move('D:\react\ArchiveReact\public\files', $filename);
+
             $piece = new Piece;
             $piece->numPiece = $request->num;
             $piece->idTypePiece = $request->idTypePiece;

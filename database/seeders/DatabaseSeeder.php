@@ -6,9 +6,11 @@ use App\Models\Archive;
 use App\Models\Beneficiaire;
 use App\Models\Cellule;
 use App\Models\Dossier;
+use App\Models\Piece;
 use App\Models\Ranger;
 use App\Models\Service;
 use App\Models\TypeDossier;
+use App\Models\TypePiece;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -44,7 +46,18 @@ class DatabaseSeeder extends Seeder
             'RUE' => 'rue',
             'VILLE' => 'agadir',
             'CP' => '86150',
-            'EMAIL' => 'benef@gmail.com',
+            'EMAIL' => 'benef1@gmail.com',
+            'TEL' => '0587965498',
+            'CONTACT' => '0587965498',
+            'GSM' => '0587965498',
+        ]);
+        Beneficiaire::create([
+            'CODEBENEFICIAIRE' => 'b2',
+            'NOMBENEFICIAIRE' => 'benef 2',
+            'RUE' => 'rue',
+            'VILLE' => 'casa',
+            'CP' => '86150',
+            'EMAIL' => 'benef2@gmail.com',
             'TEL' => '0587965498',
             'CONTACT' => '0587965498',
             'GSM' => '0587965498',
@@ -79,6 +92,30 @@ class DatabaseSeeder extends Seeder
             'DISPODOSSIER' => 0,
             'VALID' => 0,
         ]);
+        TypePiece::create([
+            "codeTypePiece" => "tp1",
+            "IntituleTypePiece" => "tp1",
+        ]);
+        TypePiece::create([
+            "codeTypePiece" => "tp2",
+            "IntituleTypePiece" => "tp2",
+        ]);
+        
+        Piece::create([
+            "numPiece" => "p1",
+            "idTypePiece" => 1,
+            "intitulePiece" => "piece 1",
+            "idDossier" => 1,
+            "file" => "1654339495.pdf",
+        ]);
+        Piece::create([
+            "numPiece" => "p2",
+            "idTypePiece" => 2,
+            "intitulePiece" => "piece 2",
+            "idDossier" => 1,
+            "file" => "1654340347.pdf",
+        ]);
+
         User::create([
             "name" => "user",
             "idService" => 1,
