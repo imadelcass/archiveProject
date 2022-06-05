@@ -2,7 +2,7 @@
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-https://www.canva.com/design/DAFCqemfJaM/sOx5v41010nDlYBznEZXAA/view?utm_content=DAFCqemfJaM&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu#21
+- **[presentation stage](https://www.canva.com/design/DAFCqemfJaM/sOx5v41010nDlYBznEZXAA/view?utm_content=DAFCqemfJaM&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu#21)**
 
 - **[Vehikl](https://vehikl.com/)**
 - **[Tighten Co.](https://tighten.co)**
